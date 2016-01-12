@@ -1,0 +1,11 @@
+Import('*')
+
+libname = 'gtest'
+lib = env.StaticLibrary(libname, 'gtest-all.cc')
+env['PRJ_LIBS'][libname] = lib
+
+libname = 'gtest_main'
+lib = env.StaticLibrary(libname, 'gtest_main.cc')
+env['PRJ_LIBS'][libname] = lib
+
+

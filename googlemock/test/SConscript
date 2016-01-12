@@ -1,0 +1,15 @@
+Import('*')
+
+exelibs = [
+    env['PRJ_LIBS']['gmock_main'],
+    env['PRJ_LIBS']['gmock'],
+    env['PRJ_LIBS']['gtest']
+]
+
+env.AppendUnique(CCFLAGS='-bigobj')
+
+exename = 'gmock_test'
+exe = env.Program(exename, 'gmock_all_test.cc', LIBS=exelibs)
+env['PRJ_EXES'][exename] = exe
+
+

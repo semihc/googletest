@@ -1,0 +1,16 @@
+Import('*')
+
+exelibs = [
+    env['PRJ_LIBS']['gtest_main'],
+    env['PRJ_LIBS']['gtest']
+]
+
+exename = 'gtest_unittest'
+exe = env.Program(exename, 'gtest_unittest.cc', LIBS=exelibs)
+env['PRJ_EXES'][exename] = exe
+
+exename = 'gtest_prod_test'
+exe = env.Program(exename, ['gtest_prod_test.cc', 'production.cc'],
+                  LIBS=exelibs)
+env['PRJ_EXES'][exename] = exe
+
