@@ -11,5 +11,6 @@ env.AppendUnique(CCFLAGS='-bigobj')
 exename = 'gmock_test'
 exe = env.Program(exename, 'gmock_all_test.cc', LIBS=exelibs)
 env['PRJ_EXES'][exename] = exe
+env['PRJ_TSTS'][exename] = exe
 
 

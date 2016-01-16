@@ -8,9 +8,11 @@ exelibs = [
 exename = 'gtest_unittest'
 exe = env.Program(exename, 'gtest_unittest.cc', LIBS=exelibs)
 env['PRJ_EXES'][exename] = exe
+env['PRJ_TSTS'][exename] = exe
 
 exename = 'gtest_prod_test'
 exe = env.Program(exename, ['gtest_prod_test.cc', 'production.cc'],
                   LIBS=exelibs)
 env['PRJ_EXES'][exename] = exe
+env['PRJ_TSTS'][exename] = exe
 
