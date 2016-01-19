@@ -6,7 +6,8 @@ exelibs = [
     env['PRJ_LIBS']['gtest']
 ]
 
-env.AppendUnique(CCFLAGS='-bigobj')
+if env['PLATFORM']=='win32' and env['CC']=='cl':
+    env.AppendUnique(CCFLAGS='-bigobj')
 
 exename = 'gmock_test'
 exe = env.Program(exename, 'gmock_all_test.cc', LIBS=exelibs)

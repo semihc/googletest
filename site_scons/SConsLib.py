@@ -92,13 +92,13 @@ def setupEnvironment(env):
             env.MergeFlags('-MTd -W1 -D_DEBUG -RTCs -Zi')
          else:
             env.MergeFlags('-MT -O1 -DNDEBUG')
-   elif linux in platform:
+   elif 'linux' in platform:
       # Replace LINKCOM to position LINKFLAGS at the very end of
       # link command line
       env.Replace(LINKCOM='$LINK -o $TARGET $__RPATH $SOURCES $_LIBDIRFLAGS $_LIBFLAGS $LINKFLAGS')
       #env.AppendUnique(LINKFLAGS = ['-lm' ])
       env.AppendUnique(CCFLAGS = ['-fPIC','-DPIC'])
-      if mode == 'dbg':
+      if env['build_mode'] == 'dbg':
         env.MergeFlags('-g')
       else:
          env.MergeFlags('-O2 -w')

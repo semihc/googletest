@@ -47,6 +47,9 @@ if sys.platform == 'win32':
         env.AppendUnique(CPPDEFINES = ['_VARIADIC_MAX=10'])
         env.AppendUnique(CCFLAGS = ['-EHsc' ])
         env.AppendUnique(LINKFLAGS = ['-subsystem:console'])
+elif 'linux' in sys.platform:
+    env.AppendUnique(CCFLAGS = '-pthread')
+    env.AppendUnique(LINKFLAGS = '-pthread')
 
 
 # Source directories that we expect to find SConscript files:
